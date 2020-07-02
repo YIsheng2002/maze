@@ -9,7 +9,6 @@ py_map = [
     ["#","#","-","-","-"]
 ]
 
-real_map = py_map[0][0]+","+py_map[0][1]+" "+py_map[0][2]+" "+py_map[0][3]+" "+py_map[0][4]+"/n"+py_map[1][0]+" "+py_map[1][1]+" "+py_map[1][2]+" "+py_map[1][3]+" "+py_map[1][4]+"/n"+py_map[2][0]+" "+py_map[2][1]+" "+py_map[2][2]+" "+py_map[2][3]+" "+py_map[2][4]+"/n"+py_map[3][0]+" "+py_map[3][1]+" "+py_map[3][2]+" "+py_map[3][3]+" "+py_map[3][4]+"/n"+py_map[4][0]+" "+py_map[4][1]+" "+py_map[4][2]+" "+py_map[4][3]+" "+py_map[4][4]+"/n"
 #current position
 pos_x,pos_y=(1,3)
 
@@ -70,8 +69,42 @@ print(str(py_map[0])+"\n"+
     str(py_map[4])+"\n"
 )
 
+next_step=[]
+pos_step=[]#possible step
+queue=[]#queue
+
+#Breadth first search algorithm
+
+def bfs():
+    global pos_step,next_step
+
+    visited=[pos_y,pos_x]
+    next_step.extend([(visited[-2]+1,visited[-1]),(visited[-2]-1,visited[-1]),(visited[-2],visited[-1]+1),(visited[-2],visited[-1]-1)])
+    for coor in next_step:
+        if py_map[coor[0]][coor[1]] == "-" or py_map[coor[0]][coor[1]] == "$":
+            pos_step.append((coor[0],coor[1]))
+
+    print(pos_step)
+    next_step.clear()
+    pos_step.clear()
+    
+"""
+def bfs(visited, graph, node):
+  visited.append(node)
+  queue.append(node)
+
+  while queue:
+    s = queue.pop(0) 
+    print (s, end = " ") 
+
+    for neighbour in graph[s]:
+      if neighbour not in visited:
+        visited.append(neighbour)
+        queue.append(neighbour)
+"""
 #game loop 
 
 while running:
+    bfs()
     step = input("What is your next step:(right,left,up,down)\n")
     movement(step)
