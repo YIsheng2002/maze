@@ -9,6 +9,7 @@ py_map = [
     ["#","#","-","-","-"]
 ]
 
+real_map = py_map[0][0]+","+py_map[0][1]+" "+py_map[0][2]+" "+py_map[0][3]+" "+py_map[0][4]+"/n"+py_map[1][0]+" "+py_map[1][1]+" "+py_map[1][2]+" "+py_map[1][3]+" "+py_map[1][4]+"/n"+py_map[2][0]+" "+py_map[2][1]+" "+py_map[2][2]+" "+py_map[2][3]+" "+py_map[2][4]+"/n"+py_map[3][0]+" "+py_map[3][1]+" "+py_map[3][2]+" "+py_map[3][3]+" "+py_map[3][4]+"/n"+py_map[4][0]+" "+py_map[4][1]+" "+py_map[4][2]+" "+py_map[4][3]+" "+py_map[4][4]+"/n"
 #current position
 pos_x,pos_y=(1,3)
 
@@ -55,9 +56,19 @@ def movement(move):
 
 def showPos(direction):
     py_map[pos_y][pos_x] = direction
-    print(py_map)
+    print(str(py_map[0])+"\n"+
+    str(py_map[1])+"\n"+
+    str(py_map[2])+"\n"+
+    str(py_map[3])+"\n"+
+    str(py_map[4])+"\n"
+)
 
-print(py_map)
+print(str(py_map[0])+"\n"+
+    str(py_map[1])+"\n"+
+    str(py_map[2])+"\n"+
+    str(py_map[3])+"\n"+
+    str(py_map[4])+"\n"
+)
 
 #game loop 
 
